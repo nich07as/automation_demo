@@ -1,4 +1,4 @@
-# automation_demo
+# Tines Audit Logs to Elastic
 
 Just a little preview of the dashboard that you can use to check on your Tines Audit Events
 
