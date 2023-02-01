@@ -1,0 +1,64 @@
+{
+  "index_patterns": [
+    "tines_audit-log"
+  ],
+  "template": {
+    "settings": {
+      "index": {
+        "number_of_shards": "1",
+        "number_of_replicas": "1"
+      }
+    },
+    "mappings": {
+      "dynamic": "true",
+      "dynamic_templates": [
+        {
+          "strings_as_keyword": {
+            "mapping": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "ignore_above": 256,
+                  "type": "keyword"
+                }
+              }
+            },
+            "match_mapping_type": "string"
+          }
+        }
+      ],
+      "date_detection": false,
+      "properties": {
+        "tenant_id": {
+          "type": "keyword"
+        },
+        "request_ip": {
+          "type": "ip"
+        },
+        "@timestamp": {
+          "type": "date"
+        },
+        "geoip": {
+          "properties": {
+            "location": {
+              "type": "geo_point"
+            }
+          }
+        },
+        "user_id": {
+          "type": "keyword"
+        },
+        "created_at": {
+          "type": "date"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "request_user_agent": {
+          "type": "keyword"
+        }
+      }
+    }
+  },
+  "composed_of": []
+}

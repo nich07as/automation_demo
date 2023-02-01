@@ -1,0 +1,15 @@
+{
+  "description": "You know, for decoding GeoIP and URL Agents from Tines Audit Logs",
+  "processors": [
+    {
+      "geoip": {
+        "field": "request_ip"
+      }
+    },
+    {
+      "user_agent": {
+        "field": "request_user_agent"
+      }
+    }
+  ]
+}
